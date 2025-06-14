@@ -5,6 +5,8 @@ using Nautilus.Crafting;
 using Nautilus.Utility;
 using UnityEngine;
 
+using HighTide.SupercompactedItems.Items;
+
 namespace HighTide.SupercompactedItems
 {
     internal class CustomBuildables
@@ -47,7 +49,7 @@ namespace HighTide.SupercompactedItems
             };
             prefab.SetGameObject(template);
 
-            prefab.SetUnlock(TechType.Workbench)
+            prefab.SetUnlock(TechType.Builder, fragmentsToScan: 0)
                 .WithPdaGroupCategory(TechGroup.InteriorModules, TechCategory.InteriorModule);
 
             prefab.Register();
