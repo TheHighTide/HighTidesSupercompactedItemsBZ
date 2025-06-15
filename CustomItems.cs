@@ -12,6 +12,8 @@ namespace HighTide.SupercompactedItems
             SupercompactedCopper.Register();
             SupercompactedQuartz.Register();
 
+            DecompressedTitanium.Register();
+
             Plugin.SendLog("All custom items should've been registered!");
         }
     }

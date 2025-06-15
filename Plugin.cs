@@ -24,6 +24,7 @@ namespace HighTide.SupercompactedItems
 
             CustomItems.RegisterCustomItems();
             CustomBuildables.RegisterCustomBuildables();
+            CustomDatabankEntries.RegisterDatabankEntries();
         }
 
         public static void SendLog(string message, LogLevel type = LogLevel.Info)
