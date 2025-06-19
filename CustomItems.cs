@@ -1,4 +1,5 @@
-﻿using HighTide.SupercompactedItems.Items;
+﻿using HighTide.SupercompactedItems.Items.Compacted;
+using HighTide.SupercompactedItems.Items.Decompacted;
 
 namespace HighTide.SupercompactedItems
 {
@@ -11,8 +12,18 @@ namespace HighTide.SupercompactedItems
             SupercompactedTitanium.Register();
             SupercompactedCopper.Register();
             SupercompactedQuartz.Register();
+            SupercompactedUranite.Register();
+            SupercompactedNickel.Register();
+
+            Plugin.SendLog("Registered all supercompacted items!");
 
             DecompressedTitanium.Register();
+            DecompactedCopper.Register();
+            DecompactedQuartz.Register();
+            DecompactedUraninite.Register();
+            DecompactedNickel.Register();
+
+            Plugin.SendLog("Registered all decompacted items!");
 
             Plugin.SendLog("All custom items should've been registered!");
         }

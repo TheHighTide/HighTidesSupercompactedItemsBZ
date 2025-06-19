@@ -1,9 +1,9 @@
-﻿using HighTide.SupercompactedItems.Items;
+﻿using HighTide.SupercompactedItems.Items.Compacted;
+using HighTide.SupercompactedItems.Items.Decompacted;
 using Nautilus.Assets;
 using Nautilus.Assets.Gadgets;
 using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Crafting;
-using Nautilus.Handlers;
 using Nautilus.Utility;
 using System.IO;
 using System.Reflection;
@@ -41,19 +41,7 @@ namespace HighTide.SupercompactedItems
 
             CustomPrefab prefab = new CustomPrefab(Info);
 
-            prefab.CreateFabricator(out CraftTree.Type treeType)
-                .AddTabNode("compact", "Compaction", SpriteManager.Get(TechType.TitaniumIngot))
-                .AddTabNode("tier1compact", "Tier 1 Compaction", SpriteManager.Get(SupercompactedTitanium.Info.TechType), parentTabId: "compact")
-                .AddCraftNode(SupercompactedTitanium.Info.TechType, "tier1compact")
-                .AddCraftNode(SupercompactedCopper.Info.TechType, "tier1compact")
-                .AddCraftNode(SupercompactedQuartz.Info.TechType, "tier1compact")
-                .AddTabNode("tier2compact", "Tier 2 Compaction", SpriteManager.Get(TechType.TitaniumIngot), parentTabId: "compact")
-                .AddTabNode("tier3compact", "Tier 3 Compaction", SpriteManager.Get(TechType.DrillableTitanium), parentTabId: "compact")
-                .AddTabNode("decompact", "Decompaction", SpriteManager.Get(TechType.Titanium))
-                .AddTabNode("tier1decompact", "Tier 1 Decompaction", SpriteManager.Get(TechType.Titanium), parentTabId: "decompact")
-                .AddCraftNode(DecompressedTitanium.Info.TechType, "tier1decompact")
-                .AddTabNode("tier2decompact", "Tier 2 Decompaction", SpriteManager.Get(TechType.TitaniumIngot), parentTabId: "decompact")
-                .AddTabNode("tier3decompact", "Tier 3 Decompaction", SpriteManager.Get(TechType.Titanium), parentTabId: "decompact");
+            CraftTree.Type treeType = CustomCrafting.RegisterCompactionCraftingTree(prefab);
 
             FabricatorTemplate template = new FabricatorTemplate(prefab.Info, treeType)
             {
