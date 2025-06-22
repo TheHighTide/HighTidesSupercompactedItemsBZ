@@ -10,7 +10,7 @@ namespace HighTide.SupercompactedItems
     {
         private const string ModGuid = "com.hightide.subnauticabz.supercompacteditems";
         private const string ModName = "HighTide's Supercompacted Items";
-        private const string ModVersion = "0.0.3";
+        private const string ModVersion = "0.0.4";
 
         private static readonly Harmony Harmony = new Harmony(ModGuid);
 

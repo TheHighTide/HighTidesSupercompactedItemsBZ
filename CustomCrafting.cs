@@ -17,6 +17,7 @@ namespace HighTide.SupercompactedItems
                 .AddCraftNode(SupercompactedQuartz.Info.TechType, "tier1compact")
                 .AddCraftNode(SupercompactedUranite.Info.TechType, "tier1compact")
                 .AddCraftNode(SupercompactedNickel.Info.TechType, "tier1compact")
+                .AddCraftNode(SupercompactedKyanite.Info.TechType, "tier1compact")
                 .AddTabNode("tier2compact", "Tier 2 Compaction", SpriteManager.Get(TechType.TitaniumIngot), parentTabId: "compact")
                 .AddTabNode("tier3compact", "Tier 3 Compaction", SpriteManager.Get(TechType.DrillableTitanium), parentTabId: "compact")
                 .AddTabNode("decompact", "Decompaction", SpriteManager.Get(TechType.Titanium))
@@ -26,6 +27,7 @@ namespace HighTide.SupercompactedItems
                 .AddCraftNode(DecompactedQuartz.Info.TechType, "tier1decompact")
                 .AddCraftNode(DecompactedUraninite.Info.TechType, "tier1decompact")
                 .AddCraftNode(DecompactedNickel.Info.TechType, "tier1decompact")
+                .AddCraftNode(DecompactedKyanite.Info.TechType, "tier1decompact")
                 .AddTabNode("tier2decompact", "Tier 2 Decompaction", SpriteManager.Get(TechType.TitaniumIngot), parentTabId: "decompact")
                 .AddTabNode("tier3decompact", "Tier 3 Decompaction", SpriteManager.Get(TechType.Titanium), parentTabId: "decompact");
 

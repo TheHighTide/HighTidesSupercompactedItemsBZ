@@ -9,9 +9,9 @@ using UnityEngine;
 
 namespace HighTide.SupercompactedItems.Items.Compacted
 {
-    internal class SupercompactedQuartz
+    internal class SupercompactedKyanite
     {
-        public static PrefabInfo Info { get; } = PrefabInfo.WithTechType("SupercompactedQuartz", "Supercompacted Quartz", "Quartz that has been supercompacted one time.");
+        public static PrefabInfo Info { get; } = PrefabInfo.WithTechType("SupercompactedKyanite", "Supercompacted Kyanite", "A supercompacted sphere of Al<sub>2</sub>SiO<sub>5</sub> with some crystal formations protruding.");
 
         public static void Register()
         {
@@ -19,9 +19,9 @@ namespace HighTide.SupercompactedItems.Items.Compacted
             string assetsPath = Path.Combine(executingPath, "Assets");
             string itemSpritePath = Path.Combine(assetsPath, "Sprites", "Items");
             string itemModelPath = Path.Combine(assetsPath, "Bundles", "Items");
-            Texture2D itemTexture = ImageUtils.LoadTextureFromFile(Path.Combine(itemSpritePath, "CompressedQuartz.png"));
-            var assetPack = AssetBundle.LoadFromFile(Path.Combine(itemModelPath, "SupercompactedQuartz"));
-            var prefabAsset = assetPack.LoadAsset<GameObject>("SupercompactedQuartz");
+            Texture2D itemTexture = ImageUtils.LoadTextureFromFile(Path.Combine(itemSpritePath, "CompressedKyanite.png"));
+            var assetPack = AssetBundle.LoadFromFile(Path.Combine(itemModelPath, "SupercompactedKyanite"));
+            var prefabAsset = assetPack.LoadAsset<GameObject>("SupercompactedKyanite");
 
             Sprite itemSprite = ImageUtils.LoadSpriteFromTexture(itemTexture);
 
@@ -29,18 +29,18 @@ namespace HighTide.SupercompactedItems.Items.Compacted
             prefabInfo.WithIcon(itemSprite);
             CustomPrefab prefab = new CustomPrefab(prefabInfo);
 
-            CloneTemplate template = new CloneTemplate(prefab.Info, TechType.Quartz);
+            CloneTemplate template = new CloneTemplate(prefab.Info, TechType.Kyanite);
 
             template.ModifyPrefab += obj =>
             {
-                GameObject model = obj.transform.Find("Quartz_small").gameObject;
-                //obj.GetComponent<BoxCollider>().enabled = false;
+                GameObject model = obj.transform.Find("kyanite_small_03").gameObject;
+                //model.transform.Find("collision").GetComponent<CapsuleCollider>().enabled = false;
                 model.SetActive(false);
                 GameObject newModel = GameObject.Instantiate(prefabAsset, obj.transform);
-                //newModel.transform.localPosition = Vector3.zero;
-                newModel.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                SphereCollider newCollider = newModel.GetComponent<SphereCollider>();
-                if (newCollider != null) newCollider.enabled = false;
+                newModel.transform.localPosition = Vector3.zero;
+                newModel.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                //SphereCollider newCollider = newModel.GetComponent<SphereCollider>();
+                //if (newCollider != null) newCollider.enabled = false;
             };
 
             prefab.SetGameObject(template);
@@ -50,14 +50,14 @@ namespace HighTide.SupercompactedItems.Items.Compacted
                 craftAmount = 1,
                 Ingredients =
                 {
-                    new Ingredient(TechType.Quartz, 10)
+                    new Ingredient(TechType.Kyanite, 10)
                 }
             };
 
             prefab.SetRecipe(recipeData)
-                .WithCraftingTime(3.5f);
+                .WithCraftingTime(7f);
 
-            prefab.SetUnlock(TechType.Quartz, fragmentsToScan: 0)
+            prefab.SetUnlock(TechType.Kyanite, fragmentsToScan: 0)
                 .WithPdaGroupCategory(TechGroup.Resources, TechCategory.BasicMaterials);
 
             prefab.Register();

@@ -14,6 +14,7 @@ namespace HighTide.SupercompactedItems
             SupercompactedQuartz.Register();
             SupercompactedUranite.Register();
             SupercompactedNickel.Register();
+            SupercompactedKyanite.Register();
 
             Plugin.SendLog("Registered all supercompacted items!");
 
@@ -22,6 +23,7 @@ namespace HighTide.SupercompactedItems
             DecompactedQuartz.Register();
             DecompactedUraninite.Register();
             DecompactedNickel.Register();
+            DecompactedKyanite.Register();
 
             Plugin.SendLog("Registered all decompacted items!");
 
